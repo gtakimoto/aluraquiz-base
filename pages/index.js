@@ -37,7 +37,7 @@ export default function Home() {
           <Widget.Content>
             Contribua para aquele suco:
             <br /><br />
-            <form action="https://www.paypal.com/donate" method="post" target="_top"> 
+            <form action="https://www.paypal.com/donate" method="post" target="_blank"> 
               <input type="hidden" name="business" value="guilhermetakimoto@hotmail.com" />
               <input type="hidden" name="item_name" value="Beer!" />
               <input type="hidden" name="currency_code" value="BRL" />
