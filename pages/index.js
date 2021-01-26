@@ -1,4 +1,8 @@
+import React from 'react'
 import styled from 'styled-components'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+
 import db from '../db.json'
 import QuizBackground from '../src/components/QuizBackground'
 import QuizLogo from '../src/components/QuizLogo'
@@ -18,8 +22,14 @@ export const QuizContainer = styled.div`
 `;
 
 export default function Home() {
+  const router = useRouter()
+  const [name, setName] = React.useState('')
+
   return (
     <QuizBackground backgroundImage={db.bg}>
+      <Head>
+        <title>Alura Beer Quiz</title>
+      </Head>
       <QuizContainer>
         <QuizLogo />
 
@@ -29,12 +39,22 @@ export default function Home() {
           </Widget.Header>
 
           <Widget.Content>
-            lorem ipsum
+            <form onSubmit={function(e) {
+              e.preventDefault()
+              router.push(`/quiz?nome=${name}`)
+            }}>
+              <input type="text" placeholder="Seu nome aqui!" onChange={function(e) {
+                setName(e.target.value)
+              }} />
+              <button type="submit" disabled={!name.length}>Jogar como {name}</button>
+            </form>
           </Widget.Content>
         </Widget>
 
         <Widget>
           <Widget.Content>
+            Seja bem-vindo, {name.length ? name : 'Pinguço(a)'}!
+            <br /><br />
             Contribua para aquele suco:
             <br /><br />
             <form action="https://www.paypal.com/donate" method="post" target="_blank"> 
