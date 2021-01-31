@@ -2,32 +2,98 @@
     "bg": "https://cdn.shopify.com/s/files/1/1776/4317/products/two_beer_1024x.jpg?v=1487931870",
     "title": "Quiz sobre o que importa: cerveja!",
     "description": "Teste os seus conhecimentos sobre cerveja e vamos ver quantos copos você aguenta sem passar vergonha",
+    "loading_image": "https://media.giphy.com/media/l3q2IYN87QjIg51kc/giphy.gif",
+    "answer_images":
+    {
+      "wrong": "https://media.giphy.com/media/26tjZfccD3vkWdSxO/giphy.gif",
+      "correct": "https://media.giphy.com/media/3o6Mb6Q4s3yp6P3K6Y/giphy.gif"
+    },
     "questions": [
       {
-        "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-        "title": "Como fazer um seletor por id via CSS?",
-        "description": "Essa é pra aquecer",
-        "answer": 2,
+        "image": "https://media.giphy.com/media/3orieTEXQQxNde3ZxC/giphy.gif",
+        "title": "Qual país do mundo em que as pessoas mais bebem cerveja?",
+        "description": "Dica: antes de responder, passe o mouse em cima das alternativas...",
+        "answer": 3,
         "alternatives": [
-          ".elemento",
-          "*elemento",
-          "#elemento",
-          "%elemento"
-        ]
+          "Brasil",
+          "Alemanha",
+          "EUA",
+          "República Tcheca"
+        ],
+        "image_explanation": "",
+        "content_explanation": "",
+        "source_explanation_name": "",
+        "source_explanation_url": ""
       },
       {
-        "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-        "title": "Como fazer um background gradiente com css?",
-        "description": "Faz tempo em haha",
+        "image": "https://media.giphy.com/media/3orieTEXQQxNde3ZxC/giphy.gif",
+        "title": "Qual o teor alcoólico da cerveja mais forte do mundo?",
+        "description": "IMPORTANTE: Ao acertar todas as questões, deve uma cerveja ao criador do quiz. Se errar, deve duas.",
+        "answer": 1,
+        "alternatives": [
+           "48%",
+           "70%",
+           "80%",
+           "94%"
+        ],
+        "image_explanation": "",
+        "content_explanation": "",
+        "source_explanation_name": "",
+        "source_explanation_url": ""
+      },
+      {
+        "image": "https://media.giphy.com/media/3orieTEXQQxNde3ZxC/giphy.gif",
+        "title": "Quanto custa a cerveja mais cara do mundo?",
+        "description": "Nunca nem vi...",
         "answer": 0,
         "alternatives": [
-           "background: linear-gradient(#e66465, #9198e5);",
-           "background: gradient(#e66465, #9198e5);"
-        ]
+          "Antarctic Nail Ale",
+          "DEUS",
+          "Samuel Adams Utopias",
+          "Crystal"
+        ],
+        "image_explanation": "",
+        "content_explanation": "",
+        "source_explanation_name": "",
+        "source_explanation_url": ""
+      },
+      {
+        "image": "https://media.giphy.com/media/3orieTEXQQxNde3ZxC/giphy.gif",
+        "title": "Por que o vidro da maioria das garrafas de cerveja é marrom?",
+        "description": "Essa é fácil, vai!",
+        "answer": 2,
+        "alternatives": [
+          "Porque sempre foi assim",
+          "Por serem mais baratas",
+          "Porque protegem dos raios UV",
+          "Por questões de regulamentação"
+        ],
+        "image_explanation": "",
+        "content_explanation": "",
+        "source_explanation_name": "",
+        "source_explanation_url": ""
+      },
+      {
+        "image": "https://media.giphy.com/media/3orieTEXQQxNde3ZxC/giphy.gif",
+        "title": "Qual a cerveja mais vendida no mundo?",
+        "description": "A última, eu prometo.",
+        "answer": 2,
+        "alternatives": [
+          "Bud Light",
+          "Skol",
+          "Snow",
+          "Heineken"
+        ],
+        "image_explanation": "",
+        "content_explanation": "",
+        "source_explanation_name": "",
+        "source_explanation_url": ""
       }
     ],
     "external": [
-      ""
+      "https://mastermindquiz.thiagodc1001.vercel.app",
+      "https://dark-quiz.azotief.vercel.app",
+      "https://mr-robot-quiz-alura.vercel.app"
     ],
     "theme": {
       "colors": {
