@@ -9,6 +9,6 @@ const QuizContainer = styled.div`
     margin: auto;
     padding: 15px;
   }
-`;
+`
 
 export default QuizContainer;

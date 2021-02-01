@@ -1,9 +1,9 @@
 // src/components/QuizBackground/index.js
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const QuizBackground = styled.div`
   width: 100%;
-  /* background-size: cover; */
+  background-size: cover;
   background-position: center;
   background-image: url(${({ backgroundImage }) => backgroundImage});
   background-color: ${({ theme }) => theme.colors.mainBg};
@@ -13,11 +13,11 @@ const QuizBackground = styled.div`
     &:after {
       content: "";
       background-size: cover;
-      background-position: center;
+    background-position: center;
       background-image:
         linear-gradient(transparent, ${({ theme }) => theme.colors.mainBg}),
         url(${({ backgroundImage }) => backgroundImage});
-      /* display: block; */
+      display: block;
       width: 100%;
       height: 210px;
       position: absolute;
@@ -31,6 +31,6 @@ const QuizBackground = styled.div`
       z-index: 10;
     }
   }
-`;
+`
 
-export default QuizBackground;
+export default QuizBackground

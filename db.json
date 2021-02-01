@@ -19,11 +19,7 @@
           "Alemanha",
           "EUA",
           "República Tcheca"
-        ],
-        "image_explanation": "",
-        "content_explanation": "",
-        "source_explanation_name": "",
-        "source_explanation_url": ""
+        ]
       },
       {
         "image": "https://media.giphy.com/media/3orieTEXQQxNde3ZxC/giphy.gif",
@@ -35,15 +31,11 @@
            "70%",
            "80%",
            "94%"
-        ],
-        "image_explanation": "",
-        "content_explanation": "",
-        "source_explanation_name": "",
-        "source_explanation_url": ""
+        ]
       },
       {
         "image": "https://media.giphy.com/media/3orieTEXQQxNde3ZxC/giphy.gif",
-        "title": "Quanto custa a cerveja mais cara do mundo?",
+        "title": "Qual é a cerveja mais cara do mundo?",
         "description": "Nunca nem vi...",
         "answer": 0,
         "alternatives": [
@@ -51,11 +43,7 @@
           "DEUS",
           "Samuel Adams Utopias",
           "Crystal"
-        ],
-        "image_explanation": "",
-        "content_explanation": "",
-        "source_explanation_name": "",
-        "source_explanation_url": ""
+        ]
       },
       {
         "image": "https://media.giphy.com/media/3orieTEXQQxNde3ZxC/giphy.gif",
@@ -67,11 +55,7 @@
           "Por serem mais baratas",
           "Porque protegem dos raios UV",
           "Por questões de regulamentação"
-        ],
-        "image_explanation": "",
-        "content_explanation": "",
-        "source_explanation_name": "",
-        "source_explanation_url": ""
+        ]
       },
       {
         "image": "https://media.giphy.com/media/3orieTEXQQxNde3ZxC/giphy.gif",
@@ -83,11 +67,7 @@
           "Snow",
           "Skol",
           "Heineken"
-        ],
-        "image_explanation": "",
-        "content_explanation": "",
-        "source_explanation_name": "",
-        "source_explanation_url": ""
+        ]
       }
     ],
     "external": [
