@@ -1,11 +1,12 @@
 import React from 'react'
-import db from '../db.json'
-import Widget from '../src/components/Widget'
-import QuizLogo from '../src/components/QuizLogo'
-import QuizBackground from '../src/components/QuizBackground'
-import QuizContainer from '../src/components/QuizContainer'
-import Button from '../src/components/Button'
-import AltenativesForm from '../src/components/AltenativesForm'
+import db from '../../../db.json'
+import Widget from '../../components/Widget'
+import QuizLogo from '../../components/QuizLogo'
+import QuizBackground from '../../components/QuizBackground'
+import QuizContainer from '../../components/QuizContainer'
+import Button from '../../components/Button'
+import AltenativesForm from '../../components/AltenativesForm'
+import BackLinkArrow from '../../components/BackLinkArrow'
 
 function ResultWidget({ results }) {
   return (
@@ -28,7 +29,7 @@ function ResultWidget({ results }) {
   )
 }
 
-function LoadingWidget() {
+function LoadingWidget({ dbLoadingImage }) {
   return (
     <Widget>
       <Widget.Header>
@@ -36,7 +37,7 @@ function LoadingWidget() {
       </Widget.Header>
 
       <Widget.Content>
-        <img src={db.loading_image} width="150px" />
+        <img src={dbLoadingImage !== undefined ? dbLoadingImage : db.loading_image } width="150px" />
       </Widget.Content>
     </Widget>
   )
@@ -52,9 +53,9 @@ function QuestionWidget({
   correctImage,
   addResult
 }) {
+  const [selectedAlternative, setSelectedAlternative] = React.useState(undefined)
   const questionId = `question__${questionIndex}`
   const [questionImage, setQuestionImage] = React.useState(question.image)
-  const [selectedAlternative, setSelectedAlternative] = React.useState(undefined)
   const [isQuestionSubmitted, setIsQuestionSubmitted] = React.useState(false)
   const hasAlternativeSelected = selectedAlternative !== undefined
   const alternativeAnswer = selectedAlternative === question.answer
@@ -62,6 +63,7 @@ function QuestionWidget({
   return (
     <Widget>
       <Widget.Header>
+        <BackLinkArrow href="/" />
         <h3>
           {`Pergunta ${questionIndex + 1} de ${totalQuestions}`}
         </h3>
@@ -91,9 +93,9 @@ function QuestionWidget({
             
             setTimeout(() => {
               addResult(alternativeAnswer)
-              setSelectedAlternative(undefined)
               onSubmit()
               setIsQuestionSubmitted(false)
+              setSelectedAlternative(undefined)
             }, 500)
 
           }}
@@ -114,6 +116,7 @@ function QuestionWidget({
                 onMouseLeave={() => setQuestionImage(question.image)}
               >
                 <input
+                  style={{ display: 'none' }}
                   id={alternativeId}
                   name={questionId}
                   type="radio"
@@ -139,14 +142,14 @@ const screenStates = {
   RESULT: 'RESULT',
 }
 
-export default function QuizPage() {
+export default function QuizPage({ externalQuestions, externalBg, externalLoading }) {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING)
   const [currentQuestion, setCurrentQuestion] = React.useState(0)
   const [results, setResults] = React.useState([])
-  const totalQuestions = db.questions.length
+  const totalQuestions = externalQuestions.length
   const questionIndex = currentQuestion
-  const question = db.questions[questionIndex]
-  const correctAnswer = db.questions[questionIndex].answer
+  const question = externalQuestions[questionIndex]
+  const correctAnswer = externalQuestions[questionIndex].answer
 
   function addResult(result) {
     setResults([
@@ -171,7 +174,7 @@ export default function QuizPage() {
   }
 
   return (
-    <QuizBackground backgroundImage={db.bg}>
+    <QuizBackground backgroundImage={externalBg}>
       <QuizContainer>
         <QuizLogo />
           {screenState === screenStates.QUIZ && (
@@ -181,13 +184,13 @@ export default function QuizPage() {
             totalQuestions={totalQuestions}
             onSubmit={handleSubmitQuiz}
             correctAnswer={correctAnswer} 
-            wrongImage={db.answer_images.wrong} 
-            correctImage={db.answer_images.correct}
+            wrongImage={externalQuestions.answer_images !== undefined ? externalQuestions.answer_images.wrong : db.answer_images.wrong} 
+            correctImage={externalQuestions.answer_images !== undefined ? externalQuestions.answer_images.correct : db.answer_images.correct}
             addResult={addResult}
           />
         )}
 
-        {screenState === screenStates.LOADING && <LoadingWidget />}
+        {screenState === screenStates.LOADING && <LoadingWidget dbLoadingImage={externalLoading} />}
 
         {screenState === screenStates.RESULT && <ResultWidget results={results} />}
       </QuizContainer>

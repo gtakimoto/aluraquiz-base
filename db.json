@@ -77,11 +77,11 @@
         "image": "https://media.giphy.com/media/3orieTEXQQxNde3ZxC/giphy.gif",
         "title": "Qual a cerveja mais vendida no mundo?",
         "description": "A última, eu prometo.",
-        "answer": 2,
+        "answer": 1,
         "alternatives": [
           "Bud Light",
-          "Skol",
           "Snow",
+          "Skol",
           "Heineken"
         ],
         "image_explanation": "",
@@ -93,7 +93,7 @@
     "external": [
       "https://mastermindquiz.thiagodc1001.vercel.app",
       "https://dark-quiz.azotief.vercel.app",
-      "https://mr-robot-quiz-alura.vercel.app"
+      "https://aluraquiz.olliveer.vercel.app"
     ],
     "theme": {
       "colors": {

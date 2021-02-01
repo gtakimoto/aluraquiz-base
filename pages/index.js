@@ -1,12 +1,14 @@
 import React from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { motion } from 'framer-motion'
 
 import db from '../db.json'
-import QuizContainer from '../src/components/QuizContainer'
+import Widget from '../src/components/Widget'
+import Link from '../src/components/Link'
 import QuizBackground from '../src/components/QuizBackground'
 import QuizLogo from '../src/components/QuizLogo'
-import Widget from '../src/components/Widget'
+import QuizContainer from '../src/components/QuizContainer'
 import Footer from '../src/components/Footer'
 import GitHubCorner from '../src/components/GitHubCorner'
 import Input from '../src/components/Input'
@@ -24,7 +26,16 @@ export default function Home() {
       <QuizContainer>
         <QuizLogo />
 
-        <Widget>
+        <Widget
+          as={motion.section}
+          transition={{ delay: 0, duration: 0.5 }}
+          variants={{
+            show: { y: 0, opacity: 1 },
+            hidden: { y: '-100%', opacity: 0 }
+          }}
+          initial="hidden"
+          animate="show"
+        >
           <Widget.Header>
             <h1>{db.title}</h1>
           </Widget.Header>
@@ -40,7 +51,16 @@ export default function Home() {
           </Widget.Content>
         </Widget>
 
-        <Widget>
+        <Widget
+          as={motion.section}
+          transition={{ delay: 0.5, duration: 0.5 }}
+          variants={{
+            show: { x: 0, opacity: 1 },
+            hidden: { x: '-100%', opacity: 0 }
+          }}
+          initial="hidden"
+          animate="show"
+        >
           <Widget.Content>
             Seja bem-vindo, {name.length ? name : 'Pinguço(a)'}!
             <br /><br />
@@ -57,16 +77,33 @@ export default function Home() {
           </Widget.Content>
         </Widget>
 
-        <Widget>
+        <Widget
+          as={motion.section}
+          transition={{ delay: 1, duration: 0.5 }}
+          variants={{
+            show: { x: 0, opacity: 1 },
+            hidden: { x: '100%', opacity: 0 }
+          }}
+          initial="hidden"
+          animate="show"
+        >
           <Widget.Content>
             <h1>Projetos dos amigos de boteco:</h1>
 
             <ul>
               {db.external.map((projetoLink) => {
+                const [projectName, gitHubUser] = projetoLink
+                  .replace(/https:\/\//g, '')
+                  .replace(/.vercel.app/g, '')
+                  .split('.')
+
                 return (
                   <li key={projetoLink}>
-                    <Widget.Topic href={projetoLink}>
-                      {projetoLink.replace(/https:\/\//g, '').replace(/.vercel.app/g, '').replace('.', '/')}
+                    <Widget.Topic 
+                      as={Link}
+                      href={`/quiz/${projectName}___${gitHubUser}`}
+                    >
+                      {`${gitHubUser}/${projectName}`}
                     </Widget.Topic>
                   </li>
                 )
@@ -75,7 +112,16 @@ export default function Home() {
           </Widget.Content>
         </Widget>
         
-        <Footer />
+        <Footer
+          as={motion.footer}
+          transition={{ delay: 1.5, duration: 0.5 }}
+          variants={{
+            show: { y: 0, opacity: 1 },
+            hidden: { y: '20%', opacity: 0 }
+          }}
+          initial="hidden"
+          animate="show"
+        />
       </QuizContainer>
       <GitHubCorner projectUrl={db.gitHubUrl} />
     </QuizBackground>
