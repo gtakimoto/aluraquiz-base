@@ -7,12 +7,13 @@ import QuizContainer from '../../components/QuizContainer'
 import Button from '../../components/Button'
 import AltenativesForm from '../../components/AltenativesForm'
 import BackLinkArrow from '../../components/BackLinkArrow'
+import Link from '../../components/Link'
 
 function ResultWidget({ results }) {
   return (
     <Widget>
       <Widget.Header>
-        Resultado final:
+        <h1>Resultado final:</h1>
       </Widget.Header>
 
       <Widget.Content>
@@ -24,6 +25,7 @@ function ResultWidget({ results }) {
             </li>
           ))}
         </ul>
+        <a as={Link} href="/"><Button type="button">Jogar novamente</Button></a>
       </Widget.Content>
     </Widget>
   )
